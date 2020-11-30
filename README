@@ -1,0 +1,3 @@
+## To run the fts cronjob by docker, just perform the following command :
+
+$  docker-compose --file Dockerfile up -d --build

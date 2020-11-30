@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: fts-renew
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: bruzzese/fts-renew
+            args: ["bin/bash /fts/renew_fts_delegation.sh"]
+            command: ["/bin/bash"]
+            args: ["-c", "mkdir -p /opt/rucio/etc; cp /tmp/usercert.pem /opt/rucio/etc/usercert.pem; cp /tmp/userkey.pem /opt/rucio/etc/userkey.pem; cp /tmp/x509up /opt/rucio/etc/x509up; /opt/user/rucio_init.sh; while true; do echo hello; sleep 3;done"]
+            volumeMounts:
+            - name: usercert
+              mountPath: /etc/grid-security/usercert
+            - name: userkey
+              mountPath: /etc/grid-security/userkey
+          restartPolicy: OnFailure
+          volumes:
+          - name: usercert
+            secret:
+              secretName: clients-admin-cert
+          - name: userkey
+            secret:
+              secretName: clients-admin-key
+              defaultMode: 0400
