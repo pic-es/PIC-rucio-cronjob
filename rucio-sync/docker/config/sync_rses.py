@@ -12,6 +12,7 @@ CRITICAL = 2
 WARNING = 1
 OK = 0
 
+fts_pic = "https://fts01.pic.es:8446"
 
 def main(argv):
     # parameters
@@ -64,7 +65,14 @@ def main(argv):
                 errno, errstr = sys.exc_info()[:2]
                 trcbck = traceback.format_exc()
                 print('Interrupted processing for %s with %s %s %s.' % (rse, errno, errstr, trcbck))
-
+        try:
+           c.add_rse_attribute(rse, key="fts", value=fts_pic)
+           print("Successfully added fts {} to RSE {}".format(fts_pic, rse))
+        except: 
+           errno, errstr = sys.exc_info()[:2]
+           trcbck = traceback.format_exc()
+           print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
 
 if __name__ == '__main__':
     main(sys.argv[1:])
+
