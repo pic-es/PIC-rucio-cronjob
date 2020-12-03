@@ -6,6 +6,7 @@ spec:
   containers:
   - name: test-rucio-sync-v1
     image: bruzzese/rucio-sync:latest
+    imagePullPolicy: Always
     command: ["python3", "./sync_rses.py"]
   restartPolicy: Never
 

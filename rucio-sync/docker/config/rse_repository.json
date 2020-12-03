@@ -1,6 +1,7 @@
 {
   "PIC-DET": {
     "backend_type": "dCache",
+    "deterministic": true,
     "protocols": {
       "default": "https",
       "supported": {
@@ -22,6 +23,34 @@
             }
           }
         }
+      }
+    }
+  },
+  "PIC-NON-DET":{
+    "backend_type": "dCache",
+    "deterministic": false,
+    "protocols": {
+      "default": "https",
+      "supported": {
+        "https": {
+          "impl": "rucio.rse.protocols.gfal.Default",
+          "hostname": "dcdoor01-dev.pic.es",
+          "port": 8453,
+          "scheme": "https",
+          "prefix": "//escape2",
+          "domains": {
+            "lan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            },
+            "wan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            }
+          }
+	}
       }
     }
   }
