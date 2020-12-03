@@ -57,30 +57,29 @@ RUN python3 -m pip install cx_oracle==6.3.1 PyMySQL
 RUN python3 -m pip install numpy
 RUN python3 -m pip install pytz
 RUN python3 -m pip install graphyte
+RUN python3 -m pip install rucio
 
 # To generate the configuration and enable bash completion for the rucio clients
 ENV PATH $PATH:/opt/rucio/etc
-# ADD bashrc /root/.bashrc
+WORKDIR /opt/rucio/etc
 
-RUN mkdir -p /client
-# RUN mkdir -p /var/log/supervisor
+ADD ./config/bashrc /root/.bashrc
 
 # Add scripts 
-ADD /Rucio02.pic.es/rucio.cfg /opt/rucio/etc/
-ADD /Rucio02.pic.es/test-upload.py /
-ADD /Rucio02.pic.es/test-create-files.py /
-ADD /Rucio02.pic.es/test-create-rules.py /
-ADD /Rucio02.pic.es/lfn2pfn.py /
-ADD /Rucio02.pic.es/MAGIC_dataset.txt /client/
-ADD /Rucio02.pic.es/test-create-files-root.py /
-ADD /Rucio02.pic.es/test-create-rules-async-root.py /
-ADD /Rucio02.pic.es/test-create-rules-root.py /
-ADD /Rucio02.pic.es/cred_proxy.sh /
-
-# RUN chmod +x /cred_proxy.sh
-# RUN /bin/bash /cred_proxy.sh
+ADD ./config/rucio.cfg /opt/rucio/etc/
+ADD ./config/test-upload.py /
+ADD ./config/test-create-files.py /
+ADD ./config/test-create-rules.py /
+ADD ./config/lfn2pfn.py /
+ADD ./config/MAGIC_dataset.txt /
+ADD ./config/MAGIC_dataset.txt /client/
+ADD ./config/test-create-files-root.py /
+ADD ./config/test-create-rules-async-root.py /
+ADD ./config/test-create-rules-root.py /
+ADD ./config/cred_proxy.sh /
 
 RUN yum clean all && \
     rm -rf /var/cache/yum
 
-CMD ["/bin/bash"]
+CMD ["/usr/sbin/init", "/bin/bash", "./entrypoint.sh"]
+

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: client-agus-test-v1
+  name: test-rucio-client-v1
   labels:
-    app: client-agus-test-1
+    app: test-rucio-client-v1
 spec:
   containers:
   - name: client
