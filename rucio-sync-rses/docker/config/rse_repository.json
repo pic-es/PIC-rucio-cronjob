@@ -1,6 +1,34 @@
 {
+  "PIC-DET": {
+    "backend_type": "dCache",
+    "deterministic": true,
+    "protocols": {
+      "default": "https",
+      "supported": {
+        "https": {
+          "impl": "rucio.rse.protocols.gfal.Default",
+          "hostname": "dcdoor01-dev.pic.es",
+          "port": 8452,
+          "prefix": "//rucio",
+          "domains": {
+            "lan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            },
+            "wan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            }
+          }
+        }
+      }
+    }
+  },
   "PIC-NON-DET":{
     "backend_type": "dCache",
+    "deterministic": false,
     "protocols": {
       "default": "https",
       "supported": {
@@ -22,30 +50,8 @@
               "delete": 1
             }
           }
-        }
-      },
-  "PIC-DET": {
-    "backend_type": "dCache",
-    "protocols": {
-      "default": "https",
-      "supported": {
-        "https": {
-          "impl": "rucio.rse.protocols.gfal.Default",
-          "hostname": "dcdoor01-dev.pic.es",
-          "prefix": "//rucio",
-          "domains": {
-            "lan": {
-              "read": 1,
-              "write": 1,
-              "delete": 1
-            },
-            "wan": {
-              "read": 1,
-              "write": 1,
-              "delete": 1
-            }
-          }
-        }
+	}
       }
-    },
+    }
+  }
 }
