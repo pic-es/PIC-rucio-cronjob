@@ -7,6 +7,7 @@ import traceback
 from rucio.client import Client
 from rucio.common.exception import Duplicate
 
+
 UNKNOWN = 3
 CRITICAL = 2
 WARNING = 1
@@ -27,6 +28,7 @@ def main(argv):
 
     c = Client()
     for rse in repo_data:
+        print(rse)
         try:
             if "deterministic" in repo_data[rse]:
                 deterministic = repo_data[rse].get('deterministic', True)
@@ -56,6 +58,7 @@ def main(argv):
                 print(repo_data[rse]['protocols']['supported'][p_id])
                 p = repo_data[rse]['protocols']['supported'][p_id]
                 p['scheme'] = p_id
+                print(p)
                 c.add_protocol(rse, p)
             except ValueError as e:
                 print(rse, e)
@@ -72,7 +75,31 @@ def main(argv):
            errno, errstr = sys.exc_info()[:2]
            trcbck = traceback.format_exc()
            print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
+        try:
+           c.set_rse_limits(rse, name="root", value=-1)
+           print("Successfully set limits for RSE {}".format(rse))
+        except:
+           errno, errstr = sys.exc_info()[:2]
+           trcbck = traceback.format_exc()
+           print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
+        
+
+        rses = c.list_rses()
+        for src in rses:
+           for dst in rses:
+               print("Trying to set distance between RSE {} and {}".format(src['rse'], dst['rse']))
+               try:
+                  c.add_distance(source=src['rse'], destination=dst['rse'], parameters={"ranking":1, "distance":1})
+                  print("Successfully added distance between RSEs {} and {}".format(rse, dst['id']))
+               except Duplicate:
+                  print('%(rse)s already added' % locals())
+               except:
+                  errno, errstr = sys.exc_info()[:2]
+                  trcbck = traceback.format_exc()
+                  print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
+
 
