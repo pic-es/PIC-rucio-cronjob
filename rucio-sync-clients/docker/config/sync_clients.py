@@ -23,8 +23,49 @@ if __name__ == '__main__':
     c = Client()
     for client in repo_data:
         print(client)
-        #try:
-        #    c.add_account(client, 'SERVICE', '')
-        #except Duplicate:
-        #    print('Account {} already added'.format(client))
+        
+        if 'email' in repo_data[client]: 
+            email = repo_data[client]['email']
+        else :
+            email = 'None'
+
+        try:
+            c.add_account(client, 'SERVICE', email)
+        except Duplicate:
+            print('Account {} already added'.format(client))
+
+        try:
+            scope = 'test-' + str(client)
+            c.add_scope(client, scope)
+        except Duplicate:
+            print('Scope {} already added'.format(scope))
+
+        if 'x509' in repo_data[client]:
+            for id in repo_data[client]['x509'] :
+               try:
+                   c.add_identity(account=client, identity=id, authtype='x509', email=email)
+               except Exception:
+                   print('Already added: ', id)
+
+        if 'GSS' in repo_data[client]:
+            for id in repo_data[client]['GSS'] :
+               try:
+                   c.add_identity(account=client, identity=id, authtype='GSS', email=email)
+               except Exception:
+                   print('Already added: ', id)
+
+        if 'GSS' in repo_data[client]:
+            for id in repo_data[client]['GSS'] :
+                try:
+                   c.add_identity(account=client, identity=id, authtype='GSS', email=email)
+                except Exception:
+                   print('Already added: ', id)
+
+        if 'USERPASS' in repo_data[client]:
+            user = repo_data[client]['USERPASS'][0] 
+            pswd = repo_data[client]['USERPASS'][1]
+            try:
+                c.add_identity(account=client, identity=user, authtype='userpass', email=email, password=pswd)
+            except Exception:
+                print('Already added: ', user)
 
