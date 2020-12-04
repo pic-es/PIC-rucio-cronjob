@@ -63,8 +63,8 @@ ENV PATH $PATH:/opt/rucio/etc
 
 ADD ./config/bashrc /root/.bashrc
 
-ADD ./config/rse_repository.json / 
-ADD ./config/sync_rses.py /
+ADD ./config/account_repository.json / 
+ADD ./config/sync_clients.py /
 ADD ./config/rucio.cfg /opt/rucio/etc/
 
 EXPOSE 5000
