@@ -33,6 +33,7 @@ RUN yum install -y --skip-broken gfal2* \
    fts-clients \
    fts-rest \
    fts-rest-cli \
+   jq \
    python-setuptools \
    python-requests \
    && yum clean all

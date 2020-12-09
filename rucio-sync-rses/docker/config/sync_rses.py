@@ -76,13 +76,22 @@ def main(argv):
            trcbck = traceback.format_exc()
            print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
         try:
-           c.set_rse_limits(rse, name="root", value=-1)
-           print("Successfully set limits for RSE {}".format(rse))
+           # c.set_rse_limits(rse, name="root", value=-1)
+           c.set_local_account_limit(account='root', rse=rse, bytes=-1)
+           print("Successfully locally set limits for RSE {}".format(rse))
         except:
            errno, errstr = sys.exc_info()[:2]
            trcbck = traceback.format_exc()
            print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
         
+        try:
+           # c.set_rse_limits(rse, name="root", value=-1)
+           c.set_global_account_limit(account='root', rse_expression=rse, bytes=-1)
+           print("Successfully globaly set limits for RSE {}".format(rse))
+        except:
+           errno, errstr = sys.exc_info()[:2]
+           trcbck = traceback.format_exc()
+           print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
 
         rses = c.list_rses()
         for src in rses:
