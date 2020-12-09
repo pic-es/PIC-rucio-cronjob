@@ -40,6 +40,7 @@ if __name__ == '__main__':
         except Duplicate:
             print('Scope {} already added'.format(scope))
 
+        print(list(c.list_identities(client)))
         if 'x509' in repo_data[client]:
             for id in repo_data[client]['x509'] :
                try:
@@ -64,8 +65,12 @@ if __name__ == '__main__':
         if 'USERPASS' in repo_data[client]:
             user = repo_data[client]['USERPASS'][0] 
             pswd = repo_data[client]['USERPASS'][1]
+            print(user, pswd)
             try:
-                c.add_identity(account=client, identity=user, authtype='userpass', email=email, password=pswd)
-            except Exception:
+                
+                c.add_identity(account=client, identity=user, authtype='userpass', password=pswd, email=email)
+            
+            except Duplicate :
                 print('Already added: ', user)
 
+        print(list(c.list_identities(client)))

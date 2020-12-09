@@ -34,7 +34,7 @@
  }, 
  "abruzzese": {
   "x509": [
-   "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ewv/CN=644876/CN=Eric Wayne Vaandering"
+   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Agustin Bruzzese bruzzese@pic.es"
   ],
   "USERPASS": [
    "abruzzese", "pwd123"

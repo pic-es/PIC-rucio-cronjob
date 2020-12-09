@@ -11,9 +11,8 @@ spec:
           containers:
           - name: hello
             image: bruzzese/fts-renew
-            args: ["bin/bash"]
             command: ["/bin/bash"]
-            args: ["-c", "mkdir -p /opt/rucio/etc; cp /tmp/usercert.pem /opt/rucio/etc/usercert.pem; /bin/bash /fts/renew_fts_delegation.sh; cp /tmp/userkey.pem /opt/rucio/etc/userkey.pem; cp /tmp/x509up /opt/rucio/etc/x509up; /opt/user/rucio_init.sh; while true; do echo hello; sleep 3;done"]
+            args: ["/fts/renew_fts_delegation.sh"]
             volumeMounts:
             - name: usercert
               mountPath: /etc/grid-security/usercert.pem
