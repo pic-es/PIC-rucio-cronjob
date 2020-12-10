@@ -1,5 +1,4 @@
 FROM centos:7
-# RUN echo "Building client"
 
 # Required repos
 RUN yum install -y wget
@@ -19,28 +18,15 @@ RUN yum install -y root nano git tree make httpd python3 python3-mod_wsgi libaio
 # Add voms dependencies 
 RUN yum install -y globus-proxy-utils voms-clients-cpp voms-clients-java
 
-# Add gfal dependencies 
-RUN yum install -y --skip-broken gfal2* \
-   gfal* --skip-broken \
-   tree \
+# Add dependencies 
+RUN yum install -y --skip-broken tree \
    which \
-   gfal2-plugin-* --skip-broken \
-   gfal2-python \
-   gfal2-util \
-   gfal2-all \
-   gfal2-plugin-http* \
    python3 \
-   fts-clients \
-   fts-rest \
-   fts-rest-cli \
-   jq \
    python-setuptools \
    python-requests \
    && yum clean all
 
-RUN yum install -y --skip-broken gfal2-plugin*
-RUn yum install -y python3-gfal2 \
-   boost-python36 \
+RUN yum install -y boost-python36 \
    glib2-devel \
    gtest \
    libattr-devel \
