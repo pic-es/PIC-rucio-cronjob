@@ -22,9 +22,28 @@
               "delete": 1
             }
           }
+        },
+        "root": {
+          "impl": "rucio.rse.protocols.gfal.Default",
+          "hostname": "dcdoor01-dev.pic.es",
+          "port": 1094,
+          "scheme": "root",
+          "prefix": "//pnfs/pic.es/data/escape/rucio",
+          "domains": {
+            "lan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            },
+            "wan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            }
+            }
+          }
         }
       }
-    }
   },
   "PIC-NON-DET":{
     "backend_type": "dCache",
@@ -50,8 +69,28 @@
               "delete": 1
             }
           }
-	}
+        },
+        "root": {
+          "impl": "rucio.rse.protocols.gfal.Default",
+          "hostname": "dcdoor01-dev.pic.es",
+          "port": 1094,
+          "scheme": "root",
+          "prefix": "//pnfs/pic.es/data/escape2",
+          "domains": {
+            "lan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            },
+            "wan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            }
+          }
+        }
       }
     }
   }
 }
+
