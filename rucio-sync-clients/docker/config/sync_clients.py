@@ -29,6 +29,9 @@ if __name__ == '__main__':
         else :
             email = 'None'
 
+        if email == None:
+            email = 'bruzzese@pic.es'
+
         try:
             c.add_account(client, 'SERVICE', email)
         except Duplicate:
@@ -65,9 +68,14 @@ if __name__ == '__main__':
         if 'USERPASS' in repo_data[client]:
             user = repo_data[client]['USERPASS'][0] 
             pswd = repo_data[client]['USERPASS'][1]
-            print(user, pswd)
+
+            if email == None:
+                print('email is null')
+                email = 'bruzzese@pic.es'
+
             try:
                 
+                print(user,pswd,email)
                 c.add_identity(account=client, identity=user, authtype='userpass', password=pswd, email=email)
             
             except Duplicate :
