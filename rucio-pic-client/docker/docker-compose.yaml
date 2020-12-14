@@ -17,9 +17,9 @@ COPY config/bashrc /root/.bashrc
 RUN yum clean metadata
 
 # Add a non-privileged user
-RUN useradd --create-home --skel /dev/null test
+# RUN useradd --create-home --skel /dev/null user
 
 USER user
-WORKDIR /home/user
+WORKDIR /opt/
 
 CMD ["/usr/sbin/init", "/bin/bash"]
