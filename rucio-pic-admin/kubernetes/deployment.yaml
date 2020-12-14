@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-rucio-client-v1
+  labels:
+    app: test-rucio-client-v1
+spec:
+  containers:
+  - name: client
+    image: bruzzese/rucio-clients:latest
+    volumeMounts:
+    - name: usercert
+      mountPath: /opt/rucio/etc/usercert
+    - name: userkey
+      mountPath: /opt/rucio/etc/userkey
+    - name: ca
+      mountPath: /etc/grid-security/certificates
+    command: ["/bin/bash"]
+    args: ["-c", "mkdir -p /opt/rucio/etc; cp /tmp/usercert.pem /opt/rucio/etc/usercert.pem; cp /tmp/userkey.pem /opt/rucio/etc/userkey.pem; cp /tmp/x509up /opt/rucio/etc/x509up; /opt/user/rucio_init.sh; while true; do echo hello; sleep 3;done"]
+  volumes:
+  - name: usercert
+    secret:
+      secretName: clients-user-cert
+  - name: userkey
+    secret:
+      secretName: clients-user-key
+      defaultMode: 0400
+  - name: ca
+    secret:
+      secretName: clients-user-ca
+      defaultMode: 0644
