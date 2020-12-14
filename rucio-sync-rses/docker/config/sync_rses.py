@@ -98,10 +98,22 @@ def main(argv):
            for dst in rses:
                print("Trying to set distance between RSE {} and {}".format(src['rse'], dst['rse']))
                try:
-                  c.add_distance(source=src['rse'], destination=dst['rse'], parameters={"ranking":1, "distance":1})
-                  print("Successfully added distance between RSEs {} and {}".format(rse, dst['id']))
+                  #c.add_distance(source=src['rse'], destination=dst['rse'], parameters={"ranking":1, "distance":1})
+                  c.add_distance(source=dst['rse'], destination=src['rse'], parameters={"ranking":1, "distance":1})
+                  print("Successfully added distance between RSEs {} and {}".format(src['rse'], dst['rse']))
                except Duplicate:
-                  print('%(rse)s already added' % locals())
+                  print('{} {} already added'.format(src['rse'], dst['rse'])
+               except:
+                  errno, errstr = sys.exc_info()[:2]
+                  trcbck = traceback.format_exc()
+                  print('Interrupted processing with %s %s %s.' % (errno, errstr, trcbck))
+
+               try:
+                  c.add_distance(source=src['rse'], destination=dst['rse'], parameters={"ranking":1, "distance":1})
+                  #c.add_distance(source=dst['rse'], destination=src['rse'], parameters={"ranking":1, "distance":1})
+                  print("Successfully added distance between RSEs {} and {}".format(dst['rse'], src['rse']))
+               except Duplicate:
+                  print('{} {} already added'.format(dst['rse'], src['rse'])
                except:
                   errno, errstr = sys.exc_info()[:2]
                   trcbck = traceback.format_exc()

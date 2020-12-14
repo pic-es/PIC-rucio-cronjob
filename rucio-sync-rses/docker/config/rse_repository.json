@@ -14,7 +14,8 @@
             "lan": {
               "read": 1,
               "write": 1,
-              "delete": 1
+              "delete": 1,
+              "third_party_copy": 1
             },
             "wan": {
               "read": 1,
@@ -33,7 +34,8 @@
             "lan": {
               "read": 1,
               "write": 1,
-              "delete": 1
+              "delete": 1,
+              "third_party_copy": 1
             },
             "wan": {
               "read": 1,
@@ -61,7 +63,8 @@
             "lan": {
               "read": 1,
               "write": 1,
-              "delete": 1
+              "delete": 1,
+              "third_party_copy": 1
             },
             "wan": {
               "read": 1,
@@ -75,12 +78,13 @@
           "hostname": "dcdoor01-dev.pic.es",
           "port": 1094,
           "scheme": "root",
-          "prefix": "//pnfs/pic.es/data/escape2",
+          "prefix": "//pnfs/pic.es/data/escape2/escape2",
           "domains": {
             "lan": {
               "read": 1,
               "write": 1,
-              "delete": 1
+              "delete": 1,
+              "third_party_copy": 1
             },
             "wan": {
               "read": 1,

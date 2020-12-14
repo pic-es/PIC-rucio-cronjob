@@ -68,6 +68,7 @@ ADD ./config/bashrc /root/.bashrc
 # Add scripts 
 ADD ./config/rucio.cfg /opt/rucio/etc/
 ADD ./config/test-upload.py /
+ADD ./config/test-upload-hash-root.py /
 ADD ./config/test-create-files.py /
 ADD ./config/test-create-rules.py /
 ADD ./config/lfn2pfn.py /
@@ -76,6 +77,7 @@ ADD ./config/MAGIC_dataset.txt /client/
 ADD ./config/test-create-files-root.py /
 ADD ./config/test-create-rules-async-root.py /
 ADD ./config/test-create-rules-root.py /
+ADD ./config/test-create-rules-hash-root.py /
 ADD ./config/cred_proxy.sh /
 ADD ./config/renew_proxy.sh /
  
