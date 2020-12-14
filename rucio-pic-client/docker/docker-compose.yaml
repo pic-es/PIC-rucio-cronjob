@@ -12,6 +12,13 @@ RUN yum -y install ca-certificates ca-policy-egi-core
 # PIC Rucio setup
 ADD config/rucio.cfg.pic.j2 /opt/user/rucio.cfg.j2
 
+COPY config/bashrc /root/.bashrc
+
+RUN yum clean metadata
+
+# Add a non-privileged user
+RUN useradd --create-home --skel /dev/null test
+
 USER user
 WORKDIR /home/user
 

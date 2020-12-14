@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: test-rucio-client-v1
+  name: test-rucio-admin-v1
   labels:
-    app: test-rucio-client-v1
+    app: test-rucio-admin-v1
 spec:
   containers:
   - name: client
-    image: bruzzese/rucio-clients:latest
+    image: bruzzese/rucio-admin:latest
     volumeMounts:
     - name: usercert
       mountPath: /opt/rucio/etc/usercert
