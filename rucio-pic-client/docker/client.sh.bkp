@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -e RUCIO_ACCOUNT=bruzzese -v "/$(pwd)/user-certs/usercert.pem:/opt/rucio/etc/usercert.pem" -v "/$(pwd)/user-certs/newkey.pem:/opt/rucio/etc/userkey.pem" -it --name=rucio-client bruzzese/rucio-client
