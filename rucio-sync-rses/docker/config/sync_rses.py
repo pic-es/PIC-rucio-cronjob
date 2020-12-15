@@ -102,7 +102,7 @@ def main(argv):
                   c.add_distance(source=dst['rse'], destination=src['rse'], parameters={"ranking":1, "distance":1})
                   print("Successfully added distance between RSEs {} and {}".format(src['rse'], dst['rse']))
                except Duplicate:
-                  print('{} {} already added'.format(src['rse'], dst['rse'])
+                  print('{} {} already added'.format(src['rse'], dst['rse']))
                except:
                   errno, errstr = sys.exc_info()[:2]
                   trcbck = traceback.format_exc()
@@ -113,7 +113,7 @@ def main(argv):
                   #c.add_distance(source=dst['rse'], destination=src['rse'], parameters={"ranking":1, "distance":1})
                   print("Successfully added distance between RSEs {} and {}".format(dst['rse'], src['rse']))
                except Duplicate:
-                  print('{} {} already added'.format(dst['rse'], src['rse'])
+                  print('{} {} already added'.format(dst['rse'], src['rse']))
                except:
                   errno, errstr = sys.exc_info()[:2]
                   trcbck = traceback.format_exc()

@@ -78,6 +78,7 @@ ADD ./config/test-create-files-root.py /
 ADD ./config/test-create-rules-async-root.py /
 ADD ./config/test-create-rules-root.py /
 ADD ./config/test-create-rules-hash-root.py /
+ADD ./config/test-create-rules-both-async-root.py /
 ADD ./config/cred_proxy.sh /
 ADD ./config/renew_proxy.sh /
  
