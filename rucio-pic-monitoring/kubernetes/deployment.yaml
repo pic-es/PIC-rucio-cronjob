@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: monitoring-admin-v1
+  labels:
+    app: monitoring-admin-v1
+spec:
+  restartPolicy: "OnFailure"
+  containers:
+  - name: monitoring
+    image: bruzzese/rucio-admin-monitoring
+    volumeMounts:
+    - name: usercert
+      mountPath: /opt/rucio/etc/usercert
+    - name: userkey
+      mountPath: /opt/rucio/etc/userkey
+    - name: ca
+      mountPath: /etc/grid-security/certificates
+    - name: x509
+      mountPath: /opt/proxy/x509
+    command: ["supervisord"]
+    # command: ["ls"]
+    # args: ["-c", "mkdir -p /opt/rucio/etc; chmod 600 /opt/rucio/etc/usercert; chmod /opt/rucio/etc/userkey; while true; do echo hello; sleep 3;done"]
+    args: ["-n", "-c", "/etc/supervisord.conf"]
+    resources:
+      requests:
+        memory: "200Mi"
+        cpu: "200m"
+        ephemeral-storage: "2Gi"
+      limits:
+        memory: "500Mi"
+        cpu: "500m"
+  volumes:
+  - name: usercert
+    secret:
+      secretName: clients-admin-cert
+  - name: userkey
+    secret:
+      secretName: clients-admin-key
+      defaultMode: 0400
+  - name: ca
+    secret:
+      secretName: clients-admin-ca
+      defaultMode: 0644
+  - name: x509
+    secret:
+      secretName: clients-admin-x509up

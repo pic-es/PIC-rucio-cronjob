@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: Pod
+metadata:
+  name: monitoring-admin
+spec:
+  Container:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: bruzzese/rucio-admin-monitoring
+            command: ["/bin/bash"]
+            args: ["/monitoring-admin.py"]
+          restartPolicy: OnFailure

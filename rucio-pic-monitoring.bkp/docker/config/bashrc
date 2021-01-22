@@ -1,0 +1,30 @@
+#!/bin/sh
+
+shopt -s checkwinsize
+
+echo "Hello agus" 
+
+if [ ! -f /opt/rucio/etc/rucio.cfg ]; then
+    echo "File rucio.cfg not found. It will generate one."
+    mkdir -p /opt/rucio/etc/
+    j2 /opt/rucio/etc/rucio.cfg.pic.j2 > /opt/rucio/etc/rucio.cfg
+fi
+
+#!/bin/sh
+
+shopt -s checkwinsize
+
+echo "Enable shell completion on the rucio commands"
+eval "$(register-python-argcomplete rucio)"
+eval "$(register-python-argcomplete rucio-admin)"
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+alias python=python3
+
+/bin/bash /renew_proxy.sh &
+
+

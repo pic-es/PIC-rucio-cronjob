@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: monitoring-admin
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: bruzzese/rucio-admin-monitoring
+            command: ["python3"]
+            args: ["/rucio-monitoring.py"]
+          restartPolicy: OnFailure

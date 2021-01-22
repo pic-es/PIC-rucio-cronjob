@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: monitoring-admin-v1
+  labels:
+    app: monitoring-admin-v1
+spec:
+  restartPolicy: "OnFailure"
+  containers:
+  - name: monitoring
+    image: bruzzese/rucio-admin-monitoring
+    command: ["/bin/bash"]
+    args: ["/monitoring-admin.sh"]
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "75m"
+        ephemeral-storage: "2Gi"
+      limits:
+        memory: "65Mi"
+        cpu: "75m"
