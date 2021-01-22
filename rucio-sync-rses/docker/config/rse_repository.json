@@ -72,13 +72,22 @@
               "delete": 1
             }
           }
-        },
-        "root": {
+        }
+      }
+    }
+  },
+  "PIC-DET-2":{
+    "backend_type": "dCache",
+    "deterministic": true,
+    "protocols": {
+      "default": "https",
+      "supported": {
+        "https": {
           "impl": "rucio.rse.protocols.gfal.Default",
           "hostname": "dcdoor01-dev.pic.es",
-          "port": 1094,
-          "scheme": "root",
-          "prefix": "//pnfs/pic.es/data/escape2/escape2",
+          "port": 8454,
+          "scheme": "https",
+          "prefix": "//escape3",
           "domains": {
             "lan": {
               "read": 1,
@@ -92,9 +101,9 @@
               "delete": 1
             }
           }
-        }
+         }
       }
-    }
-  }
+   }
+}      
 }
 

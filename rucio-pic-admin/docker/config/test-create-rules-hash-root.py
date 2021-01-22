@@ -367,9 +367,19 @@ class Rucio :
                     continue
                 break
         
+        for i in range(0,100):
+            while True:
+                try:
+                    # do stuff
+                    rule = self.addReplicaRule(dest_RSE, group=carrier_dataset)
+                    if rule != None :
+                        rule_parent = rule
+                except SomeSpecificException:
+                    continue
+                break
 
         # Add dummy dataset for replicating Origin RSE
-        rule_parent = self.addReplicaRule(org_RSE, group=carrier_dataset)
+        # rule_parent = self.addReplicaRule(org_RSE, group=carrier_dataset)
         
         print(rule_child, rule_parent)
         # Create a relation rule between origin and destiny RSE, so that the source data can be deleted 

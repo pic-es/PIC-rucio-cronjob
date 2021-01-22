@@ -1,4 +1,4 @@
-FROM rucio/rucio-clients:release-1.23.11
+FROM rucio/rucio-clients:release-1.24.1
 
 USER root
 
@@ -13,6 +13,9 @@ RUN yum install -y epel-release.noarch && yum clean all
 RUN yum upgrade -y && yum clean all
 RUN yum install -y nano git tree python3 && yum clean all
 RUN yum install -y gfal2-util gfal2-all gfal2-python3 gfal2-python
+
+# Clone the conf files into the docker container
+RUN git clone https://github.com/BruzzeseAgustin/Rucio-Clients-Scripts.git /Scripts
 
 # PIC Rucio setup
 RUN python3 -m pip install --upgrade pip setuptools
@@ -33,20 +36,19 @@ ADD ./config/bashrc /root/.bashrc
 
 # Add scripts 
 ADD ./config/rucio.cfg /opt/rucio/etc/
-ADD ./config/test-upload.py /
-ADD ./config/test-upload-hash-root.py /
-ADD ./config/test-create-files.py /
-ADD ./config/test-create-rules.py /
-ADD ./config/lfn2pfn.py /
-ADD ./config/MAGIC_dataset.txt /
-ADD ./config/MAGIC_dataset.txt /client/
-ADD ./config/test-create-files-root.py /
-ADD ./config/test-create-rules-async-root.py /
-ADD ./config/test-create-rules-root.py /
-ADD ./config/test-create-rules-hash-root.py /
-ADD ./config/test-create-rules-both-async-root.py /
+# ADD ./config/test-upload.py /
+# ADD ./config/test-upload-hash-root.py /
+# ADD ./config/lfn2pfn.py /
+# ADD ./config/MAGIC_dataset.txt /
+# ADD ./config/MAGIC_dataset.txt /client/
+# ADD ./config/test-create-files-root.py /
+# ADD ./config/test-create-rules-async-root.py /
+# ADD ./config/test-create-rules-root.py /
+# ADD ./config/test-create-rules-hash-root.py /
+# ADD ./config/test-create-rules-both-async-root.py /
 ADD ./config/cred_proxy.sh /
 ADD ./config/renew_proxy.sh /
+ADD ./config/test-create-rules-hash-async-root.py / 
  
 RUN chmod 777 /renew_proxy.sh
 RUN /bin/bash /renew_proxy.sh &

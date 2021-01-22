@@ -12,3 +12,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 alias python=python3
+
+/bin/bash /renew_proxy.sh &
+
+

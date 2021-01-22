@@ -30,10 +30,12 @@ echo -e "${dtstamp}: ${proxytool} return: ${proxy_ret}\n" >> ${ftsproxylog} 2>&1
 ${proxytool} -cert ${hostcert} -key ${hostkey} -out  ${x509proxy} -pwstdin -debug 2>> ${ftsproxylog} 2>&1
 
 ## Delgate proxy
-echo "here i'm"
+
 echo -e "${ftsdelegate} -f -v -s ${ftsserver} --cert ${x509proxy} --key ${x509proxy}"  >> ${ftsproxylog} 2>&1
 
 ${ftsdelegate} -f -v -s ${ftsserver} --cert ${x509proxy} --key ${x509proxy}  >> ${ftsproxylog} 2>&1
+
+cat ${ftsproxylog}
 
 delegate_ret=$? 
 echo -e "${dtstamp}: ${ftsdelegate} return: ${delegate_ret}" >> ${ftsproxylog} 2>&1

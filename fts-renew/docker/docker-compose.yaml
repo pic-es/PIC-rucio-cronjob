@@ -20,26 +20,17 @@ RUN yum install -y root nano git tree make httpd python3 python3-mod_wsgi libaio
 RUN yum install -y globus-proxy-utils voms-clients-cpp voms-clients-java
 
 # Add gfal dependencies 
-RUN yum install -y --skip-broken gfal2* \
-   gfal* --skip-broken \
-   tree \
+RUN yum install -y tree \
    which \
-   gfal2-plugin-* --skip-broken \
-   gfal2-python \
-   gfal2-util \
-   gfal2-all \
-   gfal2-plugin-http* \
    python3 \
-   fts-clients \
-   fts-rest \
+   # fts-clients \
+   # fts-rest \
    fts-rest-cli \
    python-setuptools \
    python-requests \
    && yum clean all
 
-RUN yum install -y --skip-broken gfal2-plugin*
-RUn yum install -y python3-gfal2 \
-   boost-python36 \
+RUn yum install -y boost-python36 \
    glib2-devel \
    gtest \
    libattr-devel \
@@ -62,3 +53,4 @@ RUN python3 -m pip install --upgrade pip setuptools
 EXPOSE 5000
 
 CMD ["/usr/sbin/init", "/bin/bash", "./entrypoint.sh"]
+
