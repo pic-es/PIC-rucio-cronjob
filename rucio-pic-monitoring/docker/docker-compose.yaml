@@ -42,11 +42,13 @@ ADD ./config/write_graphite-config.conf /etc/collectd.d/write_graphite-config.co
 ADD ./config/monitoring-admin.sh /
 ADD ./config/Rucio-upload-monitoring.py /
 ADD ./config/monitoring-upload.sh /
+ADD ./config/delete-coredumps.sh /
 ADD ./config/supervisord.conf /etc/ 
 
 RUN chmod 777 /renew_proxy.sh
 RUN chmod 777 /monitoring-admin.sh
 RUN chmod 777 /monitoring-upload.sh
+RUN chmod 777 /delete-coredumps.sh
 RUN /bin/bash /renew_proxy.sh &
 RUN mkdir -p /var/log/daemon_logs/
 RUN yum clean all && \

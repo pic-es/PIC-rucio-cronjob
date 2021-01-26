@@ -21,13 +21,13 @@ echo -e "\n################ ${dtstamp} ################"
 
 ## Create robot proxy
 # echo $PASSPHRASE
-echo -e "${dtstamp}: ${proxytool} -cert ${hostcert} -key ${hostkey} -out ${x509proxy} "
+# echo -e "${dtstamp}: ${proxytool} -cert ${hostcert} -key ${hostkey} -out ${x509proxy} "
 
 while true
 do  
-  ${proxytool} --cert ${hostcert} --key ${hostkey} --out ${x509proxy} --valid 3000:00
+  ${proxytool} --cert ${hostcert} --key ${hostkey} --out ${x509proxy} --valid 3000:00 
   
-  voms-proxy-info -all
+  # voms-proxy-info -all
   
   sleep 43100
 
