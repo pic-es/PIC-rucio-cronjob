@@ -1,0 +1,57 @@
+FROM rucio/rucio-clients:release-1.24.1
+
+USER root
+
+# EGI trust anchors
+RUN curl -o /etc/yum.repos.d/EGI-trustanchors.repo http://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo \
+    && yum -y update
+
+RUN yum -y install wget && yum clean all
+RUN yum -y install ca-certificates ca-policy-egi-core && yum clean all
+RUN yum -y install collectd
+
+RUN yum install -y epel-release.noarch && yum clean all
+RUN yum upgrade -y && yum clean all
+RUN yum install -y nano python3 && yum clean all
+RUN yum install -y gfal2-util gfal2-all gfal2-python3 gfal2-python
+
+# PIC Rucio setup
+RUN python3 -m pip install --upgrade pip setuptools
+RUN rm -rf /usr/lib/python3.6/site-packages/ipaddress*
+RUN python3 -m pip install rucio-clients
+
+RUN python3 -m pip install j2cli psycopg2-binary
+RUN python3 -m pip install cx_oracle==6.3.1 PyMySQL
+RUN python3 -m pip install numpy
+RUN python3 -m pip install pytz
+RUN python3 -m pip install graphyte
+
+# To generate the configuration and enable bash completion for the rucio clients
+ENV PATH $PATH:/opt/rucio/etc
+WORKDIR /opt/rucio/etc
+
+ADD ./config/bashrc /root/.bashrc
+
+# Add scripts 
+ADD ./config/rucio.cfg.pic.j2 /opt/rucio/etc/
+# ADD ./config/rucio.cfg /opt/rucio/etc/
+
+ADD ./config/rucio-monitoring.py /
+ADD ./config/renew_proxy.sh /
+ADD ./config/write_graphite-config.conf /etc/collectd.d/write_graphite-config.conf 
+
+RUN chmod 777 /renew_proxy.sh
+RUN /bin/bash /renew_proxy.sh &
+
+RUN yum clean all && \
+    rm -rf /var/cache/yum
+
+# ENV RUCIO_CFG_RUCIO_HOST=https://pic01-rucio-server.pic.es:443
+# ENV RUCIO_CFG_AUTH_HOST=https://pic01-rucio-server-auth.pic.es:443
+# ENV RUCIO_CFG_CA_CERT=/etc/grid-security/certificates
+# ENV RUCIO_CFG_AUTH_TYPE=userpass
+# ENV RUCIO_CFG_USERNAME=ddmlab
+# ENV RUCIO_CFG_PASSWORD=secret
+# ENV RUCIO_CFG_ACCOUNT=root
+
+CMD ["/usr/sbin/init", "/bin/bash"]

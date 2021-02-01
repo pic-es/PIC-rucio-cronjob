@@ -7,8 +7,20 @@
  }, 
  "rcruz": {
   "email": null, 
+  "x509": [
+   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Ricard Cruz rcruz@pic.es"
+  ],
   "USERPASS": [
    "rcruz", "pwd123"
+ ]
+ },
+ "cacosta": {
+  "email": null,
+  "x509": [
+   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Carles Acosta cacosta@pic.es"
+  ],
+  "USERPASS": [
+   "cacosta", "pwd123"
  ]
  }, 
  "jdelgado": {
