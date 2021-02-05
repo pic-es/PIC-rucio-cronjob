@@ -86,8 +86,12 @@ def main(argv):
         
         try:
            # c.set_rse_limits(rse, name="root", value=-1)
-           c.set_global_account_limit(account='root', rse_expression=rse, bytes=-1)
-           print("Successfully globaly set limits for RSE {}".format(rse))
+
+           for account in accounts :
+             c.set_local_account_limit(account=account['account'], rse=rse, bytes=-1)
+
+             print("Successfully locally set limits for RSE {} with the user {}".format(rse, account['account']))
+
         except:
            errno, errstr = sys.exc_info()[:2]
            trcbck = traceback.format_exc()

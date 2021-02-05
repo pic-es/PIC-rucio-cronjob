@@ -24,6 +24,10 @@
  ]
  }, 
  "jdelgado": {
+  "x509": [
+   "/DC=org/DC=terena/DC=tcs/C=ES/O=Institut de Fisica d. Altes Energies/CN=Jordi Delgado jdelgado@ifae.es",
+   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/OU=PIC/CN=maprd001.magic.pic.es"
+  ],
   "USERPASS": [
    "jdelgado", "pwd123"
  ]
@@ -60,6 +64,9 @@
   "email": null, 
   "USERPASS": [
    "gmerino", "pwd123"
+ ],
+  "x509": [
+   "/DC=org/DC=terena/DC=tcs/C=ES/O=Institut de Fisica d.Altes Energies/CN=Gonzalo Merino gmerino@pic.es"
  ]
  }
 }
