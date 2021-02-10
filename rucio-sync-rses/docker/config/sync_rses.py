@@ -86,6 +86,7 @@ def main(argv):
         
         try:
            # c.set_rse_limits(rse, name="root", value=-1)
+           accounts = list((c.list_accounts()))
 
            for account in accounts :
              c.set_local_account_limit(account=account['account'], rse=rse, bytes=-1)
