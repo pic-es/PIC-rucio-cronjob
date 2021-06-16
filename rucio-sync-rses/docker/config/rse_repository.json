@@ -93,6 +93,26 @@
             }
           }
         }
+      },
+        "gsiftp": {
+          "impl": "rucio.rse.protocols.gfal.Default",
+          "hostname": "dcdoor01-dev.pic.es",
+          "port": 2811,
+          "scheme": "gsiftp",
+          "prefix": "//pnfs/pic.es/data/escape2/escape2",
+          "domains": {
+            "lan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1,
+              "third_party_copy": 1
+            },
+            "wan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            }
+        }
       }
     }
   },
@@ -175,4 +195,3 @@
    }
 }
 }
-
