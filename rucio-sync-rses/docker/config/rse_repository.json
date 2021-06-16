@@ -92,8 +92,7 @@
               "delete": 1
             }
           }
-        }
-      },
+        },
         "gsiftp": {
           "impl": "rucio.rse.protocols.gfal.Default",
           "hostname": "dcdoor01-dev.pic.es",
@@ -115,6 +114,7 @@
         }
       }
     }
+  }
   },
   "PIC-DET-2":{
     "backend_type": "dCache",
