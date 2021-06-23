@@ -1,4 +1,4 @@
-FROM rucio/rucio-clients:release-1.24.1
+FROM rucio/rucio-clients:release-1.23.11
 
 USER root
 
@@ -9,7 +9,8 @@ RUN curl -o /etc/yum.repos.d/EGI-trustanchors.repo http://repository.egi.eu/sw/p
 RUN yum -y install wget && yum clean all
 RUN yum -y install ca-certificates ca-policy-egi-core && yum clean all
 
-RUN yum install -y epel-release.noarch && yum clean all
+RUN yum install -y epel-release.noarch python python-setuptools python-dev python3-devel  gcc gcc libcurl-devel libcurl-openssl-devel openssl-devel python-urllib3 swig gcc-c++ make openssl-devel libpcre3 libpcre3-dev fts-client fts-rest-cli
+
 RUN yum upgrade -y && yum clean all
 RUN yum install -y nano git tree python3 && yum clean all
 RUN yum install -y gfal2-util gfal2-all gfal2-python3 gfal2-python
@@ -27,6 +28,16 @@ RUN python3 -m pip install cx_oracle==6.3.1 PyMySQL
 RUN python3 -m pip install numpy
 RUN python3 -m pip install pytz
 RUN python3 -m pip install graphyte
+RUN python3 -m pip install wheel
+RUN python3 -m pip install M2Crypto
+RUN python3 -m pip install pycurl
+RUN python3 -m pip install fts3
+RUN python3 -m pip install fts3-rest-cli
+
+RUN wget https://files.pythonhosted.org/packages/e1/4e/bc06cf96a9871b1b465ec0438a1cd32395b8709490b7fd0b4c063b018f1a/fts3-rest-API-3.7.1.tar.gz#sha256=e1d9207d0addffef14821ad4b905f1c362e2f2ccebc66152ff937f7b109b0cd2 \
+	&& tar -xzf fts3-rest-API-3.7.1.tar.gz \
+	&& cd fts3-rest-API-3.7.1 \ 
+	&& sed -i "s/print /#print/" setup.py
 
 # To generate the configuration and enable bash completion for the rucio clients
 ENV PATH $PATH:/opt/rucio/etc

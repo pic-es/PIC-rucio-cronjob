@@ -6,6 +6,8 @@ services:
       dockerfile: docker-compose.yaml
     hostname: fts-renew
     restart: always
+    environment:
+      - ftsserver=https://fts01.pic.es:8446
     volumes: 
-      - ../host-cert-k8s-v4/hostcert.pem:/etc/grid-security/usercert.pem
-      - ../host-cert-k8s-v4/hostkey.pem:/etc/grid-security/userkey.pem
+      - ../certs-folder/hostcert.pem:/etc/grid-security/usercert.pem
+      - ../certs-folder/hostkey.pem:/etc/grid-security/userkey.pem

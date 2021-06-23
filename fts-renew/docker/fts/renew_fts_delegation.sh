@@ -13,7 +13,6 @@ hostcert=/etc/grid-security/usercert.pem
 hostkey=/etc/grid-security/userkey.pem
 x509proxy=/tmp/x509up_u0
 ftsdelegate=/bin/fts-rest-delegate
-ftsserver=https://fts01.pic.es:8446
 
 # export PASSPHRASE="if needed"
 

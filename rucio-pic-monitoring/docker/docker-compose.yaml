@@ -54,12 +54,5 @@ RUN mkdir -p /var/log/daemon_logs/
 RUN yum clean all && \
     rm -rf /var/cache/yum
 
-# ENV RUCIO_CFG_RUCIO_HOST=https://pic01-rucio-server.pic.es:443
-# ENV RUCIO_CFG_AUTH_HOST=https://pic01-rucio-server-auth.pic.es:443
-# ENV RUCIO_CFG_CA_CERT=/etc/grid-security/certificates
-# ENV RUCIO_CFG_AUTH_TYPE=userpass
-# ENV RUCIO_CFG_USERNAME=ddmlab
-# ENV RUCIO_CFG_PASSWORD=secret
-# ENV RUCIO_CFG_ACCOUNT=root
 
 CMD ["/usr/sbin/init", "/bin/bash"]

@@ -14,6 +14,8 @@ services:
       - RUCIO_CFG_USERNAME=ddmlab
       - RUCIO_CFG_PASSWORD=secret
       - RUCIO_CFG_ACCOUNT=root
+      - RUCIO_CFG_CLIENT_CERT = /opt/rucio/etc/usercert/usercert.pem
+      - RUCIO_CFG_CLIENT_KEY = /opt/rucio/etc/usercert/userkey.pem     
     volumes: 
       - ../../../host-cert-k8s-v4/hostcert.pem:/opt/rucio/etc/usercert/usercert.pem
       - ../../../host-cert-k8s-v4/hostkey.pem:/opt/rucio/etc/userkey/userkey.pem
