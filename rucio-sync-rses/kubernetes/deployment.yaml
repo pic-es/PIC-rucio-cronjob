@@ -5,8 +5,10 @@ metadata:
 spec:
   containers:
   - name: test-rucio-sync-rses-v1
+    env:
+    - name: ftsserver
+      value: "https://fts02.pic.es:8446"
     image: bruzzese/rucio-sync-rses:latest
     imagePullPolicy: Always
     command: ["python3", "./sync_rses.py"]
   restartPolicy: Never
-
