@@ -24,13 +24,10 @@ jobs:
   include:
     - stage: test rse json
       script:
-      - 'make test_1'
+      - python json-validator.py --load_json ../rucio-sync-rses/docker/config/rse_repository.json
     - stage: test client json
       script:
-      - 'make test_2'
-    - state: build image
-      script:
-      - 'make image'
+      - python json-validator.py --load_json ../rucio-sync-clients/docker/config/account_repository.json
 
 # only execute the following instructions in
 # the case of a success (failing at this point
