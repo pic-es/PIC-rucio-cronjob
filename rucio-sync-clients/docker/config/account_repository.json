@@ -1,84 +1,92 @@
-{ 
- "eplanas": {
-  "email": null, 
-  "USERPASS": [
-   "eplanas", "pwd123"
-  ]
- }, 
- "rcruz": {
-  "email": null, 
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Ricard Cruz rcruz@pic.es"
-  ],
-  "USERPASS": [
-   "rcruz", "pwd123"
- ]
- },
- "cacosta": {
-  "email": null,
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Carles Acosta cacosta@pic.es"
-  ],
-  "USERPASS": [
-   "cacosta", "pwd123"
- ]
- }, 
- "jdelgado": {
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=Institut de Fisica d. Altes Energies/CN=Jordi Delgado jdelgado@ifae.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/OU=PIC/CN=maprd001.magic.pic.es"
-  ],
-  "USERPASS": [
-   "jdelgado", "pwd123"
- ]
- }, 
- "root": {
-  "email": null, 
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Agustin Bruzzese bruzzese@pic.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=PIC/CN=Agustin Bruzzese bruzzese@pic.es", 
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=rucio03.pic.es", 
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server.pic.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-auth.pic.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-trace.pic.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-probes.pic.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-web.pic.es"
-  ],
-  "USERPASS": [
-   "ddmlab", "pwd123"
- ]
- }, 
- "ptallada": {
-  "USERPASS": [
-   "ptallada", "pwd123"
- ]
- }, 
- "abruzzese": {
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Agustin Bruzzese bruzzese@pic.es",
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=PIC/CN=Agustin Bruzzese bruzzese@pic.es"
-  ],
-  "USERPASS": [
-   "abruzzese", "pwd123"
- ]
- }, 
- "gmerino": {
-  "email": null, 
-  "USERPASS": [
-   "gmerino", "pwd123"
- ],
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/O=Institut de Fisica d.Altes Energies/CN=Gonzalo Merino gmerino@pic.es"
- ]
- }
-, 
- "monit-rucio": {
-  "email": null, 
-  "USERPASS": [
-   "monit-rucio", "pwd123"
- ],
-  "x509": [
-   "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server.pic.es"
- ]
- }
+{
+    "abruzzese": {
+        "USERPASS": [
+            "abruzzese",
+            "pwd123"
+        ],
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Agustin Bruzzese bruzzese@pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=PIC/CN=Agustin Bruzzese bruzzese@pic.es"
+        ]
+    },
+    "cacosta": {
+        "USERPASS": [
+            "cacosta",
+            "pwd123"
+        ],
+        "email": null,
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Carles Acosta cacosta@pic.es"
+        ]
+    },
+    "eplanas": {
+        "USERPASS": [
+            "eplanas",
+            "pwd123"
+        ],
+        "email": null
+    },
+    "gmerino": {
+        "USERPASS": [
+            "gmerino",
+            "pwd123"
+        ],
+        "email": null,
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=Institut de Fisica d.Altes Energies/CN=Gonzalo Merino gmerino@pic.es"
+        ]
+    },
+    "jdelgado": {
+        "USERPASS": [
+            "jdelgado",
+            "pwd123"
+        ],
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=Institut de Fisica d. Altes Energies/CN=Jordi Delgado jdelgado@ifae.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/OU=PIC/CN=maprd001.magic.pic.es"
+        ]
+    },
+    "monit-rucio": {
+        "USERPASS": [
+            "monit-rucio",
+            "pwd123"
+        ],
+        "email": null,
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server.pic.es"
+        ]
+    },
+    "ptallada": {
+        "USERPASS": [
+            "ptallada",
+            "pwd123"
+        ]
+    },
+    "rcruz": {
+        "USERPASS": [
+            "rcruz",
+            "pwd123"
+        ],
+        "email": null,
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Ricard Cruz rcruz@pic.es"
+        ]
+    },
+    "root": {
+        "USERPASS": [
+            "ddmlab",
+            "pwd123"
+        ],
+        "email": null,
+        "x509": [
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Agustin Bruzzese bruzzese@pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/O=PIC/CN=Agustin Bruzzese bruzzese@pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=rucio03.pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server.pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-auth.pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-trace.pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-probes.pic.es",
+            "/DC=org/DC=terena/DC=tcs/C=ES/L=Cerdanyola del Valles/O=Institut de Fisica d. Altes Energies/CN=pic01-rucio-server-web.pic.es"
+        ]
+    }
 }

@@ -13,7 +13,7 @@ spec:
             image: bruzzese/fts-renew
 	    env:
 	    - name: ftsserver
-	      value: "https://fts02.pic.es:8446"
+	      value: "https://fts01.pic.es:8446"
             command: ["/bin/bash"]
             args: ["/fts/renew_fts_delegation.sh"]
             volumeMounts:

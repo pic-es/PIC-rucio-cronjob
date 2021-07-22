@@ -3,6 +3,7 @@
 import json
 import sys
 import traceback
+import os
 
 from rucio.client import Client
 from rucio.common.exception import Duplicate
@@ -13,7 +14,11 @@ CRITICAL = 2
 WARNING = 1
 OK = 0
 
-fts_pic = "https://fts01.pic.es:8446"
+# fts_pic = "https://fts01.pic.es:8446"
+fts_pic = os.getenv('ftsserver')
+
+if not fts_pic :
+    fts_pic = "https://fts01.pic.es:8446"
 
 def main(argv):
     # parameters
