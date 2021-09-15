@@ -272,6 +272,35 @@
       }
    }
 },
+  "ORM-DET-TEST":{
+    "backend_type": "dCache",
+    "deterministic": true,
+    "protocols": {
+      "default": "gsiftp",
+      "supported": {
+        "gsiftp": {
+          "impl": "rucio.rse.protocols.gfal.Default",
+          "hostname": "grid.magic.iac-test.es",
+          "port": 2811,
+          "scheme": "gsiftp",
+          "prefix": "//data/",
+          "domains": {
+            "lan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1,
+              "third_party_copy": 1
+            },
+            "wan": {
+              "read": 1,
+              "write": 1,
+              "delete": 1
+            }
+          }
+         }
+      }
+   }
+},
   "PIC-DET-TAPE":{
     "backend_type": "dCache",
     "deterministic": true,
