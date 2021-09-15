@@ -173,7 +173,7 @@
       "supported": {
         "gsiftp": {
           "impl": "rucio.rse.protocols.gfal.Default",
-          "hostname": "grid2.magic.iac.es",
+          "hostname": "grid.magic.iac-test.pic.es",
           "port": 2811,
           "scheme": "gsiftp",
           "prefix": "//data/Other/rucio_tmp/",
