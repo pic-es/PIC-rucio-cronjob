@@ -254,7 +254,7 @@
           "hostname": "grid.magic.iac-test.pic.es",
           "port": 2811,
           "scheme": "gsiftp",
-          "prefix": "//data/",
+          "prefix": "//data/Other/rucio_tmp/",
           "domains": {
             "lan": {
               "read": 1,
@@ -283,7 +283,7 @@
           "hostname": "grid.magic.iac-test.pic.es",
           "port": 2811,
           "scheme": "gsiftp",
-          "prefix": "//data/",
+          "prefix": "//data/Other/rucio_tmp/",
           "domains": {
             "lan": {
               "read": 1,
