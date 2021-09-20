@@ -303,6 +303,7 @@
 },
   "PIC-DET-TAPE":{
     "backend_type": "dCache",
+    "rse_type": "TAPE",
     "deterministic": true,
     "protocols": {
       "default": "gsiftp",
