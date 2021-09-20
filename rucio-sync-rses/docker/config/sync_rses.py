@@ -8,6 +8,7 @@ import os
 from rucio.client import Client
 from rucio.common.exception import Duplicate
 
+#os.environ['RUCIO_HOME']=os.path.expanduser('~/rucio')
 
 UNKNOWN = 3
 CRITICAL = 2
@@ -26,7 +27,6 @@ def main(argv):
         rse_repo_file = argv[0]
     else:
         rse_repo_file = '/rse_repository.json'
-
     json_data = open(rse_repo_file)
     repo_data = json.load(json_data)
     json_data.close()
@@ -41,6 +41,12 @@ def main(argv):
                 deterministic = repo_data[rse].get('deterministic', False)
             else : 
                 deterministic = repo_data[rse].get('deterministic', True)
+                
+            if "rse_type" in repo_data[rse]:
+                rse_type = repo_data[rse].get('rse_type')
+            else : 
+                rse_type = 'DISK'
+                
             volatile = repo_data[rse].get('volatile', False)
             region_code = repo_data[rse].get('region_code')
             country_name = repo_data[rse].get('country_name')
@@ -50,8 +56,8 @@ def main(argv):
             ISP = repo_data[rse].get('ISP')
             print()
             print('Trying to add {} rse'.format(rse)) 
-            c.add_rse(rse, deterministic=deterministic, volatile=volatile, region_code=region_code, country_name=country_name, staging_area=staging_area, continent=continent, time_zone=time_zone, ISP=ISP)
-            print(deterministic, volatile, region_code, country_name, staging_area, continent, time_zone, ISP) 
+            c.add_rse(rse, deterministic=deterministic, volatile=volatile, region_code=region_code, rse_type=rse_type, country_name=country_name, staging_area=staging_area, continent=continent, time_zone=time_zone, ISP=ISP)
+            print(deterministic, volatile, region_code, country_name, staging_area, continent, time_zone, ISP, rse_type) 
         except Duplicate:
             print('%(rse)s already added' % locals())
         except:
