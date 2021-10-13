@@ -72,6 +72,16 @@
             "/DC=org/DC=terena/DC=tcs/C=ES/O=Port dInformacio Cientifica/CN=Ricard Cruz rcruz@pic.es"
         ]
     },
+    "ctauser": {
+        "USERPASS": [
+            "ctauser",
+            "aD95ky83uaum8UWe"
+        ],
+        "email": null,
+        "x509": [
+            "DC=org, DC=terena, DC=tcs, C=ES, ST=Barcelona, O=Institut de Fisica d. Altes Energies, OU=PIC, CN=escape001.pic.es"
+        ]
+    },
     "root": {
         "USERPASS": [
             "ddmlab",
